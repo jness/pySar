@@ -1,0 +1,33 @@
+== Description
+
+pysarGraphs is a Python library for reading sysstat output
+
+== Need a working sysstat setup
+
+    [me@webapp01 pysarGraphs]$ sar | head
+    Linux 3.3.4-5.fc17.x86_64 (webapp01)    09/04/2012      _x86_64_        (4 CPU)
+    
+    12:00:02 AM     CPU     %user     %nice   %system   %iowait    %steal     %idle
+    12:10:01 AM     all      0.06      0.00      0.89      0.57      0.01     98.48
+    12:20:02 AM     all      0.07      0.00      1.37      0.67      0.01     97.88
+    12:30:01 AM     all      0.07      0.00      1.66      0.57      0.01     97.69
+    12:40:02 AM     all      0.05      0.00      0.68      0.69      0.01     98.57
+    12:50:01 AM     all      0.05      0.00      0.59      0.24      0.00     99.12
+    01:00:02 AM     all      0.07      0.00      0.99      0.75      0.01     98.17
+    01:10:01 AM     all      0.06      0.00      0.56      0.18      0.00     99.20
+
+== Usage
+
+    >>> from pysarGraphs.lib import sar
+    >>> results = sar(sarbin='/bin/sar')
+    
+    >>> len(results)
+    110
+    >>> results[0].keys()
+    ['%steal', '%user', 'timestamp', '%idle', 'AM', '%iowait', 'CPU', '%nice', '%system']
+    >>> results[0]['timestamp']
+    '12:10:01'
+    >>> results[0]['%idle']
+    '98.48'
+    >>> results[0]['%iowait']
+    '0.57'
