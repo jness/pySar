@@ -25,7 +25,7 @@ def __run(command):
 
 def __getbin(sarbin, saroptions):
     'Creates a sar command to be ran'
-    sarcommand = 'LC_TIME="POSIX" %s' % sarbin
+    sarcommand = '%s' % sarbin
     if saroptions:
         sarcommand = '%s %s' % (sarcommand, saroptions)
          
@@ -34,7 +34,7 @@ def __getbin(sarbin, saroptions):
     
 def __getfile(sarbin, saroptions, sarfile):
     'Uses input file to perform sar'
-    sarcommand = 'LC_TIME="POSIX" %s -f %s' % (sarbin, sarfile)
+    sarcommand = '%s -f %s' % (sarbin, sarfile)
     if saroptions:
         sarcommand = '%s %s' % (sarcommand, saroptions)
         
