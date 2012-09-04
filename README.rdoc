@@ -36,6 +36,8 @@ pySar is a Python library for reading sysstat output
 
     >>> results = sar(sarbin='/bin/sar', saroptions='-r')
     
+    >>> results[0].keys()
+    ['kbactive', '%commit', 'timestamp', '%memused', 'AM', 'kbmemfree', 'kbcommit', 'kbbuffers', 'kbmemused', 'kbinact', 'kbcached']
     >>> results[0]['timestamp']
     '12:10:01'
     >>> results[0]['kbmemfree']
