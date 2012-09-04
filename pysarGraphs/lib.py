@@ -21,12 +21,19 @@ def __run(command):
 
 def __getbin(sarbin, saroptions):
     'Creates a sar command to be ran'
-    sarcommand = 'LC_TIME="POSIX" %s %s' % (sarbin, saroptions)
-    return __run(sarcommand)
+    sarcommand = 'LC_TIME="POSIX" %s' % sarbin
+    if saroptions:
+        sarcommand = '%s %s' % (sarcommand, saroptions)
+         
+    results = __run(sarcommand)
+    return __interrupt(results)
     
 def __getfile(sarbin, saroptions, sarfile):
     'Uses input file to perform sar'
-    sarcommand = 'LC_TIME="POSIX" %s -f %s %s' % (sarbin, sarfile, saroptions)
+    sarcommand = 'LC_TIME="POSIX" %s -f %s' % (sarbin, sarfile)
+    if saroptions:
+        sarcommand = '%s %s' % (sarcommand, saroptions)
+        
     results = __run(sarcommand)
     return __interrupt(results)
     
