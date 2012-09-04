@@ -24,7 +24,7 @@ pySar is a Python library for reading sysstat output
     >>> len(results)
     110
     >>> results[0].keys()
-    ['%steal', '%user', 'timestamp', '%idle', 'AM', '%iowait', 'CPU', '%nice', '%system']
+    ['%steal', '%user', 'timestamp', '%idle', '%iowait', 'CPU', '%nice', '%system']
     >>> results[0]['timestamp']
     '12:10:01'
     >>> results[0]['%idle']
@@ -37,7 +37,8 @@ pySar is a Python library for reading sysstat output
     >>> results = sar(sarbin='/bin/sar', saroptions='-r')
     
     >>> results[0].keys()
-    ['kbactive', '%commit', 'timestamp', '%memused', 'AM', 'kbmemfree', 'kbcommit', 'kbbuffers', 'kbmemused', 'kbinact', 'kbcached']
+    ['kbactive', '%commit', 'timestamp', '%memused', 'kbmemfree', 'kbcommit',
+    'kbbuffers', 'kbmemused', 'kbinact', 'kbcached']
     >>> results[0]['timestamp']
     '12:10:01'
     >>> results[0]['kbmemfree']
@@ -48,6 +49,6 @@ pySar is a Python library for reading sysstat output
     >>> results = sar(sarbin='/bin/sar', saroptions='-q', sarfile='/var/log/sa/sa03')
     
     >>> results[0].keys()
-    ['plist-sz', 'ldavg-15', 'timestamp', 'AM', 'runq-sz', 'ldavg-1', 'ldavg-5', 'blocked']
+    ['plist-sz', 'ldavg-15', 'timestamp', 'runq-sz', 'ldavg-1', 'ldavg-5', 'blocked']
     >>> results[0]['ldavg-5']
     '0.01'
