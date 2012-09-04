@@ -1,10 +1,10 @@
 == Description
 
-pysarGraphs is a Python library for reading sysstat output
+pySar is a Python library for reading sysstat output
 
 == Need a working sysstat setup
 
-    [me@webapp01 pysarGraphs]$ sar | head
+    [me@webapp01 pySar]$ sar | head
     Linux 3.3.4-5.fc17.x86_64 (webapp01)    09/04/2012      _x86_64_        (4 CPU)
     
     12:00:02 AM     CPU     %user     %nice   %system   %iowait    %steal     %idle
@@ -18,7 +18,7 @@ pysarGraphs is a Python library for reading sysstat output
 
 == Usage
 
-    >>> from pysarGraphs.lib import sar
+    >>> from pySar.lib import sar
     >>> results = sar(sarbin='/bin/sar')
     
     >>> len(results)
