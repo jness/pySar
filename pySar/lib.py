@@ -1,8 +1,8 @@
 import subprocess
-import locale
+import os
 
 # set locale for a 24 hour timestamp
-locale.setlocale(locale.LC_TIME, 'POSIX')
+os.environ['LC_TIME']='POSIX'
 
 def __run(command):
     'Used to run a system command and return the results'
