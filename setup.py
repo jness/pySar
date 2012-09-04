@@ -3,7 +3,7 @@ import sys, os
 
 version = '0.1'
 
-setup(name='pysarGraphs',
+setup(name='pySar',
       version=version,
       description="A tool for interrupting sar output",
       long_description="",
@@ -16,6 +16,5 @@ setup(name='pysarGraphs',
       packages=find_packages(exclude=['ez_setup', 'tests']),
       include_package_data=True,
       zip_safe=False,
-      #install_requires=[''],
       test_suite='nose.collector',
       )
