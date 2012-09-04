@@ -42,3 +42,12 @@ pySar is a Python library for reading sysstat output
     '12:10:01'
     >>> results[0]['kbmemfree']
     '6452'
+    
+== Access historic logs with the "sarfile" option
+
+    >>> results = sar(sarbin='/bin/sar', saroptions='-q', sarfile='/var/log/sa/sa03')
+    
+    >>> results[0].keys()
+    ['plist-sz', 'ldavg-15', 'timestamp', 'AM', 'runq-sz', 'ldavg-1', 'ldavg-5', 'blocked']
+    >>> results[0]['ldavg-5']
+    '0.01'
