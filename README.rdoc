@@ -16,7 +16,7 @@ pySar is a Python library for reading sysstat output
     01:00:02 AM     all      0.07      0.00      0.99      0.75      0.01     98.17
     01:10:01 AM     all      0.06      0.00      0.56      0.18      0.00     99.20
 
-== Usage
+== Getting CPU usage
 
     >>> from pySar.lib import sar
     >>> results = sar(sarbin='/bin/sar')
@@ -31,3 +31,12 @@ pySar is a Python library for reading sysstat output
     '98.48'
     >>> results[0]['%iowait']
     '0.57'
+
+== Getting Memory usage
+
+    >>> results = sar(sarbin='/bin/sar', saroptions='-r')
+    
+    >>> results[0]['timestamp']
+    '12:10:01'
+    >>> results[0]['kbmemfree']
+    '6452'
