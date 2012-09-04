@@ -77,8 +77,8 @@ def __interrupt(saroutput):
 def sar(sarbin=None, saroptions=None, sarfile=None):
     'Entry point for running sar, or reading sar log file'
     if sarfile and sarbin:
-        __getfile(sarbin, saroptions, sarfile)
+        return __getfile(sarbin, saroptions, sarfile)
     elif sarbin:
-        __getbin(sarbin, saroptions)
+        return __getbin(sarbin, saroptions)
     else:
         raise Exception('Missing required inputs')
