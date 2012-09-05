@@ -15,8 +15,35 @@ pySar is a Python library for reading sysstat output
     12:50:01 AM     all      0.05      0.00      0.59      0.24      0.00     99.12
     01:00:02 AM     all      0.07      0.00      0.99      0.75      0.01     98.17
     01:10:01 AM     all      0.06      0.00      0.56      0.18      0.00     99.20
+    
+== Using the "pysar" command
 
-== Getting CPU usage
+    [me@webapp01 pySar]$ pysar --help
+    usage: pysar [-h] [--pretty]
+                 sysstat report type to pull. ['cpu', 'load', 'memory', 'swap']
+    
+    positional arguments:
+      sysstat report type to pull. ['cpu', 'load', 'memory', 'swap']
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      --pretty              Print json output in human readable form.
+      
+      
+    [me@webapp01 pySar]$ pysar cpu --pretty | head -n 11
+    [
+        {
+            "%steal": "0.01", 
+            "%user": "0.08", 
+            "timestamp": "00:10:01", 
+            "%idle": "97.49", 
+            "%iowait": "0.73", 
+            "CPU": "all", 
+            "%nice": "0.00", 
+            "%system": "1.70"
+        }, 
+
+== Getting CPU usage with python
 
     >>> from pySar.lib import sar
     >>> results = sar(sarbin='/bin/sar')
@@ -32,7 +59,7 @@ pySar is a Python library for reading sysstat output
     >>> results[0]['%iowait']
     '0.57'
 
-== Getting Memory usage
+== Getting Memory usage with python
 
     >>> results = sar(sarbin='/bin/sar', saroptions='-r')
     
@@ -44,7 +71,7 @@ pySar is a Python library for reading sysstat output
     >>> results[0]['kbmemfree']
     '6452'
     
-== Access historic logs with the "sarfile" option
+== Access historic logs with the "sarfile" option with python
 
     >>> results = sar(sarbin='/bin/sar', saroptions='-q', sarfile='/var/log/sa/sa03')
     
